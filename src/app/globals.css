@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+/* Coolbond brand tokens — taken from the logo & stationery */
+@theme {
+  --color-navy-950: #071B36;
+  --color-navy-900: #0B2A55;
+  --color-navy-800: #18324B; /* stationery heading colour */
+  --color-navy: #033C86;     /* logo "Cool" */
+  --color-navy-600: #124682;
+  --color-ocean: #087FC1;
+  --color-sky: #08A5E9;      /* logo "bond" */
+  --color-sky-400: #14B8E6;
+  --color-ice: #EAF6FB;
+  --color-ice-50: #F5FBFE;
+  --color-ember: #E6392C;    /* logo check-mark */
+  --color-slate-ink: #5A5A5A;
+  --color-mist: #6D7B88;
+
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-spin-slow: spin 24s linear infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #ffffff;
+  color: var(--color-navy-800);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+
+@utility container-x {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2;
+}
+@utility btn-primary {
+  @apply btn bg-ember text-white shadow-lg shadow-ember/25 hover:-translate-y-0.5 hover:bg-[#cf2e22];
+}
+@utility btn-blue {
+  @apply btn bg-navy text-white hover:-translate-y-0.5 hover:bg-navy-600;
+}
+@utility btn-ghost {
+  @apply btn border border-white/30 bg-white/10 text-white backdrop-blur hover:bg-white/20;
+}
+@utility btn-outline {
+  @apply btn border border-navy/20 text-navy hover:border-navy hover:bg-navy hover:text-white;
+}
+@utility eyebrow {
+  @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-ocean;
+}
+@utility card {
+  @apply rounded-2xl border border-navy/10 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky/40 hover:shadow-xl hover:shadow-sky/10;
+}
+@utility field {
+  @apply w-full rounded-xl border border-navy/15 bg-white px-4 py-3 text-sm text-navy-800 placeholder:text-mist/70 focus:border-sky focus:outline-none focus:ring-4 focus:ring-sky/15;
+}
+
+/* Decorative backgrounds */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.bg-hero {
+  background:
+    radial-gradient(1100px 500px at 85% -10%, rgba(8,165,233,.45), transparent 60%),
+    radial-gradient(800px 500px at -10% 110%, rgba(8,127,193,.35), transparent 60%),
+    linear-gradient(135deg, #071B36 0%, #033C86 60%, #0A5FAE 100%);
+}
+.text-gradient {
+  background: linear-gradient(90deg, #14B8E6, #8BE0FF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
